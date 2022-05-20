@@ -10,43 +10,41 @@ namespace Rehorizon.GuideBook
     {
         [SerializeField] Text headerText;
         [SerializeField] Text descriptionText;
-        [SerializeField] Text tabName;
+        [SerializeField] int startDocumentID = 1;
+
+        
 
        
 
         DocumentList document;
-        string tittle;
+        
         
        
 
         private void Start() {
-            // description.text = GetComponent<Convertion>().GetDataDocument();
 
             document = GetComponent<Convertion>().LoadReader();
 
-            print(GetTitle());
-
-            // for (int i = 0; i < document.GuideBook.Length; i++)
-            // {
-            //     print(document.GuideBook[i]);
-            // }
-            // headerText.text = document.title;
-            // descriptionText.text = document.description;
-            // tabName.text = document.tabName;
+            ShowDocument(1);
         }
 
-        private string GetTitle()
+        
+
+        public void ShowDocument(int idDocument)
         {
-            ;
             foreach (Document documentFile in document.GuideBook)
             {
-                tittle = documentFile.title;
+                if(documentFile.documentId == idDocument)
+                {
+                    headerText.text = documentFile.title;
+                    descriptionText.text = documentFile.description;
+                }
                 
             }
 
-            return tittle;
-
             
         }
+
+        
     }
 }
