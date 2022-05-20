@@ -16,6 +16,7 @@ namespace Rehorizon.Core
 
         public Tilemap mainTilemap;
         public Tilemap tempTilemap;
+        public Tilemap backgroundTilemap;
         public bool isBuildMode;
         public TileType color;
 
@@ -36,7 +37,8 @@ namespace Rehorizon.Core
 
         private void Start() {
             isBuildMode = false;
-            gameObject.SetActive(false);
+            tempTilemap.gameObject.SetActive(false);
+            mainTilemap.gameObject.SetActive(false);
             
             string tilePath = @"Tiles\";
 
@@ -45,6 +47,7 @@ namespace Rehorizon.Core
             tileBases.Add(TileType.Green, Resources.Load<TileBase>(tilePath + "green"));
             tileBases.Add(TileType.Red, Resources.Load<TileBase>(tilePath + "red"));
             tileBases.Add(TileType.Brown, Resources.Load<TileBase>(tilePath + "brown"));
+            tileBases.Add(TileType.Nature, Resources.Load<TileBase>(tilePath + "nature"));
         }
 
         private void Update() {
@@ -98,7 +101,8 @@ namespace Rehorizon.Core
         {
             
             isBuildMode = !isBuildMode;
-            gameObject.SetActive(isBuildMode);
+            mainTilemap.gameObject.SetActive(isBuildMode);
+            tempTilemap.gameObject.SetActive(isBuildMode);
             
         }
 
@@ -227,7 +231,15 @@ namespace Rehorizon.Core
         public void TakeArea(BoundsInt area)
         {
             SetTilesBlock(area, TileType.Empty, tempTilemap);
+            SetTilesBlock(area, TileType.Nature, backgroundTilemap);
             SetTilesBlock(area, TileType.Green, mainTilemap);
+        }
+
+        public void TakeAreaEffect(BoundsInt area)
+        {
+            SetTilesBlock(area, TileType.Empty, tempTilemap);
+            SetTilesBlock(area, TileType.Nature, backgroundTilemap);
+            
         }
 
         
@@ -243,6 +255,7 @@ namespace Rehorizon.Core
         Green,
         Red,
         Brown,
+        Nature,
     }
 
 }

@@ -31,9 +31,13 @@ namespace Rehorizon.Core
       {
          Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
          BoundsInt areaTempt = area;
+         BoundsInt areaTemptEffect = effectArea;
          areaTempt.position = positionInt;
          Placed = true;
          GridBuilding.current.TakeArea(areaTempt);
+
+         GridBuilding.current.TakeAreaEffect(areaTemptEffect);
+         
       }
 
       public TileType SetColorCell()
