@@ -15,14 +15,21 @@ public class resourceTextController : MonoBehaviour
 
     public Text dayCounter;
     public Text timeCounter;
+
+    public GameObject resourceControllerObject;
+    resourceController srcTxt;
     void Start()
     {
-        
+        srcTxt = resourceControllerObject.GetComponent<resourceController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        anorganic.text = srcTxt.Get_anorganicWaste().ToString();
+        organic.text = srcTxt.Get_organicWaste().ToString();
+        electric.text = srcTxt.Get_ElectronicWaste().ToString();
+        stone.text = srcTxt.Get_Stone().ToString();
+        water.text = srcTxt.Get_Water().ToString();
     }
 }
