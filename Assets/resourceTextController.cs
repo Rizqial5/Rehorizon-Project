@@ -18,9 +18,13 @@ public class resourceTextController : MonoBehaviour
 
     public GameObject resourceControllerObject;
     resourceController srcTxt;
+
+    public GameObject timeControllerObject;
+    timeController srcTime;
     void Start()
     {
         srcTxt = resourceControllerObject.GetComponent<resourceController>();
+        srcTime = timeControllerObject.GetComponent<timeController>();
     }
 
     // Update is called once per frame
@@ -31,5 +35,7 @@ public class resourceTextController : MonoBehaviour
         electric.text = srcTxt.Get_ElectronicWaste().ToString();
         stone.text = srcTxt.Get_Stone().ToString();
         water.text = srcTxt.Get_Water().ToString();
+        timeCounter.text = srcTime.Get_FullTime();
+        dayCounter.text = string.Format("Day : {0}", srcTime.Get_DayCount().ToString()) ;
     }
 }
