@@ -35,8 +35,8 @@ namespace Rehorizon.Core
          areaTempt.position = positionInt;
          Placed = true;
          GridBuilding.current.TakeArea(areaTempt);
-
          GridBuilding.current.TakeAreaEffect(areaTemptEffect);
+         
          
       }
 

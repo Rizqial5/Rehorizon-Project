@@ -101,6 +101,15 @@ namespace Rehorizon.Core
         {
             
             isBuildMode = !isBuildMode;
+            if(!isBuildMode)
+            {
+                if(temp && !temp.Placed)
+                {
+                    Destroy(temp.gameObject);
+                }
+                
+                ClearArea();
+            }
             mainTilemap.gameObject.SetActive(isBuildMode);
             tempTilemap.gameObject.SetActive(isBuildMode);
             
@@ -231,7 +240,6 @@ namespace Rehorizon.Core
         public void TakeArea(BoundsInt area)
         {
             SetTilesBlock(area, TileType.Empty, tempTilemap);
-            SetTilesBlock(area, TileType.Nature, backgroundTilemap);
             SetTilesBlock(area, TileType.Green, mainTilemap);
         }
 
