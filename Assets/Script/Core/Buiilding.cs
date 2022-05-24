@@ -7,16 +7,20 @@ namespace Rehorizon.Core
    public class Buiilding : MonoBehaviour
    {
       public bool Placed{get; private set; }
-      public BoundsInt area;
-      public BoundsInt effectArea;
       public TileType colorCell;
       public TileType colorEffectCell;
 
+      
+
+      public BoundsInt area;
+      public BoundsInt effectArea;
+     
+      
 
       public bool CanBePlaced()
       {
          Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
-         BoundsInt areaTempt = area;
+         BoundsInt areaTempt = area ;
          areaTempt.position = positionInt;
 
          if(GridBuilding.current.CanTakeArea(areaTempt))
@@ -40,15 +44,27 @@ namespace Rehorizon.Core
          
       }
 
-      public TileType SetColorCell()
+
+      public Vector3 SetBuildingAreaPosition(Vector3Int parameter)
       {
-         return colorCell;
+         return area.position = parameter;
+      }
+      public Vector3 SetEffectAreaPosition( Vector3Int parameter )
+      {
+         return effectArea.position = parameter;
       }
 
-      public TileType SetColorCellEffect()
+      public BoundsInt SetBuildingArea(BoundsInt parameter)
       {
-         return colorEffectCell;
+         return area = parameter;
       }
+      public BoundsInt SetEffectArea( BoundsInt parameter )
+      {
+         return effectArea = parameter;
+      }
+
+      
+
 
    }
 

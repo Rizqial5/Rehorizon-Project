@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -19,23 +20,39 @@ namespace Rehorizon.Core
         public Tilemap backgroundTilemap;
         public bool isBuildMode;
         public TileType color;
+       
+        [SerializeField] BuildingSO currentBuilding = null;
 
         
 
         private static Dictionary<TileType, TileBase> tileBases = new Dictionary<TileType, TileBase>();
 
-        private Buiilding temp;
+        
+
         private Vector3 prevPos;
         private BoundsInt prevArea;   
         private BoundsInt prevAreaEffect;  
+
+        BuildingSO temp = null;
+        LazyValue<Buiilding> buiilding;
+
+        
 
          
 
         private void Awake() {
             current = this;
+            buiilding = new LazyValue<Buiilding>(SetupDefaultBuilding);
+        }
+
+        private Buiilding SetupDefaultBuilding()
+        {
+            return currentBuilding.GetBuildingPrefab();
         }
 
         private void Start() {
+
+            // buiilding.ForceInit();
             isBuildMode = false;
             tempTilemap.gameObject.SetActive(false);
             mainTilemap.gameObject.SetActive(false);
@@ -54,20 +71,23 @@ namespace Rehorizon.Core
             
             if(!isBuildMode) return;
 
+            
+
             if(!temp) return;
+            
 
             if(Input.GetMouseButton(0))
             {
                 if(EventSystem.current.IsPointerOverGameObject(0)) return;
 
-                if(!temp.Placed)
+                if(!buiilding.value.Placed)
                 {
                     Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector3Int cellPos = gridLayout.LocalToCell(touchPos);
 
                     if(prevPos != cellPos)
                     {
-                        temp.transform.localPosition = gridLayout.CellToLocalInterpolated(cellPos
+                        buiilding.value.transform.localPosition = gridLayout.CellToLocalInterpolated(cellPos
                             + new Vector3(.5f, .5f, 0f));
                         prevPos = cellPos;
                         FollowBuilding();
@@ -76,9 +96,9 @@ namespace Rehorizon.Core
             }
             else if(Input.GetKeyDown(KeyCode.Space))
             {
-                if(temp.CanBePlaced())
+                if(buiilding.value.CanBePlaced())
                 {
-                    temp.Place();
+                    buiilding.value.Place();
                     ClearAreaEffect();
                     
                     
@@ -86,11 +106,13 @@ namespace Rehorizon.Core
             }
             else if(Input.GetKeyDown(KeyCode.Escape))
             {
-                if(!temp.Placed)
+                if(!buiilding.value.Placed)
                 {
                     ClearArea();
                     ClearAreaEffect();
-                    Destroy(temp.gameObject);
+
+                    print("bisa");
+                    Destroy(buiilding.value.gameObject);
                 }
                 
             }
@@ -103,9 +125,9 @@ namespace Rehorizon.Core
             isBuildMode = !isBuildMode;
             if(!isBuildMode)
             {
-                if(temp && !temp.Placed)
+                if(buiilding.value && !buiilding.value.Placed)
                 {
-                    Destroy(temp.gameObject);
+                    Destroy(buiilding.value.gameObject);
                 }
                 
                 ClearArea();
@@ -148,11 +170,18 @@ namespace Rehorizon.Core
         }
 
 
-        public void InitializeWithBuilding(GameObject building)
+        public void InitializeWithBuilding(BuildingSO buildingSO)
         {
             if(!isBuildMode) return;
-            temp = Instantiate(building, Vector3.zero, Quaternion.identity).GetComponent<Buiilding>();
+            temp = buildingSO;
+            buiilding.value =  AttachBuilding(buildingSO);
             FollowBuilding();
+        }
+
+        public Buiilding AttachBuilding(BuildingSO buildingSO)
+        {
+            return buildingSO.Spawn();
+
         }
 
         private void ClearArea()
@@ -174,11 +203,14 @@ namespace Rehorizon.Core
             ClearArea();
             ClearAreaEffect();
 
-            temp.area.position = gridLayout.WorldToCell(temp.gameObject.transform.position);
-            temp.effectArea.position = gridLayout.WorldToCell(temp.gameObject.transform.position);
+            buiilding.value.area = temp.GetBuildingArea();
+            buiilding.value.effectArea = temp.GetEffectArea();
 
-            BoundsInt buildingArea = temp.area;
-            BoundsInt effectArea = temp.effectArea;
+            buiilding.value.area.position = gridLayout.WorldToCell(buiilding.value.gameObject.transform.position);
+            buiilding.value.effectArea.position = gridLayout.WorldToCell(buiilding.value.gameObject.transform.position);
+            
+            BoundsInt buildingArea = buiilding.value.area;
+            BoundsInt effectArea = buiilding.value.effectArea;
             
 
             TileBase[] baseArray = GetTilesBlock(buildingArea, mainTilemap);
@@ -194,7 +226,7 @@ namespace Rehorizon.Core
             {
                 if (baseArray[i] == tileBases[TileType.White])
                 {
-                    tileArray[i] = tileBases[temp.SetColorCell()];
+                    tileArray[i] = tileBases[TileType.Green];
                 }
                 else
                 {
@@ -207,7 +239,7 @@ namespace Rehorizon.Core
             {
                 if (baseArrayEffect[i] == tileBases[TileType.White])
                 {
-                    tileArrayEffect[i] = tileBases[temp.SetColorCellEffect()];
+                    tileArrayEffect[i] = tileBases[TileType.Brown];
                 }
                 else
                 {
@@ -247,7 +279,7 @@ namespace Rehorizon.Core
         {
             SetTilesBlock(area, TileType.Empty, tempTilemap);
             SetTilesBlock(area, TileType.Nature, backgroundTilemap);
-            
+            print("bisa");
         }
 
         
