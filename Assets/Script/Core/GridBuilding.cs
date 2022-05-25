@@ -70,9 +70,6 @@ namespace Rehorizon.Core
         private void Update() {
             
             if(!isBuildMode) return;
-
-            
-
             if(!temp) return;
             
 
@@ -100,6 +97,7 @@ namespace Rehorizon.Core
                 {
                     buiilding.value.Place();
                     ClearAreaEffect();
+                    temp = null;
                     
                     
                 }
@@ -127,7 +125,11 @@ namespace Rehorizon.Core
             {
                 if(buiilding.value && !buiilding.value.Placed)
                 {
-                    Destroy(buiilding.value.gameObject);
+                    if(temp)
+                    {
+                        Destroy(buiilding.value.gameObject);
+                    } 
+                    
                 }
                 
                 ClearArea();
@@ -173,8 +175,13 @@ namespace Rehorizon.Core
         public void InitializeWithBuilding(BuildingSO buildingSO)
         {
             if(!isBuildMode) return;
+            if(temp) return;
+            
             temp = buildingSO;
             buiilding.value =  AttachBuilding(buildingSO);
+        
+            
+            
             FollowBuilding();
         }
 
