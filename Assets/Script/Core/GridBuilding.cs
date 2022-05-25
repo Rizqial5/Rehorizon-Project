@@ -130,6 +130,7 @@ namespace Rehorizon.Core
                         Destroy(buiilding.value.gameObject);
                     } 
                     
+                    temp = null;
                 }
                 
                 ClearArea();
@@ -286,7 +287,6 @@ namespace Rehorizon.Core
         {
             SetTilesBlock(area, TileType.Empty, tempTilemap);
             SetTilesBlock(area, TileType.Nature, backgroundTilemap);
-            print("bisa");
         }
 
         
