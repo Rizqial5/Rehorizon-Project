@@ -16,7 +16,7 @@ MonoBehaviour:
   buildingSprite: {fileID: 21300000, guid: 2330a1f515e05c8409f9df8718081b6d, type: 3}
   buildingArea:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 2, y: 2, z: 3}
+    m_Size: {x: 2, y: 2, z: 2}
   effectArea:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 3, y: 3, z: 2}
+    m_Size: {x: 3, y: 3, z: 1}

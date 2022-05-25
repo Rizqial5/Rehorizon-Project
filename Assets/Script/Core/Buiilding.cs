@@ -45,23 +45,7 @@ namespace Rehorizon.Core
       }
 
 
-      public Vector3 SetBuildingAreaPosition(Vector3Int parameter)
-      {
-         return area.position = parameter;
-      }
-      public Vector3 SetEffectAreaPosition( Vector3Int parameter )
-      {
-         return effectArea.position = parameter;
-      }
-
-      public BoundsInt SetBuildingArea(BoundsInt parameter)
-      {
-         return area = parameter;
-      }
-      public BoundsInt SetEffectArea( BoundsInt parameter )
-      {
-         return effectArea = parameter;
-      }
+      
 
       
 
