@@ -9,9 +9,6 @@ namespace Rehorizon.GuideBook
     public class Convertion : MonoBehaviour
     {
         public TextAsset jsonText;
-        
-
-    
 
         public DocumentList LoadReader()
         {
