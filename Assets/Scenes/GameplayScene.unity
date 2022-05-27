@@ -687,6 +687,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   zoomSpeed: 50
+  zoomOutBoundary: 7
+  zoomInBoundary: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2810,7 +2812,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!224 &1806634505
 RectTransform:
