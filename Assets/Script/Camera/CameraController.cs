@@ -8,6 +8,7 @@ namespace Rehorizon.CameraControl
     public class CameraController : MonoBehaviour
     {
         [SerializeField] float speed = 4;
+        [SerializeField] float zoomSpeed = 10;
 
         CameraMover mover;
 
@@ -19,6 +20,17 @@ namespace Rehorizon.CameraControl
         // Update is called once per frame
         void Update()
         {
+            if(Input.mouseScrollDelta.y <= 0f)
+            {
+                mover.ZoomMovement(zoomSpeed);
+            }
+            if(Input.mouseScrollDelta.y >= 0f)
+            {
+                mover.ZoomMovement(-zoomSpeed);
+            }
+
+            
+
             if(Input.GetKey(KeyCode.D))
             {
                 mover.Movement(1,0,speed);

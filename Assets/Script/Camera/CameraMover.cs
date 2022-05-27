@@ -10,5 +10,10 @@ namespace Rehorizon.CameraControl
         {
             transform.position += new Vector3(x,y) * Time.deltaTime * speed ;
         }
+
+        public void ZoomMovement(float speed)
+        {
+            Camera.main.orthographicSize += speed * Time.deltaTime;
+        }
     }
 }
