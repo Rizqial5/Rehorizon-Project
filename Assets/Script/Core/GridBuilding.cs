@@ -72,7 +72,6 @@ namespace Rehorizon.Core
             
             if(!isBuildMode) return;
             if(!temp) return;
-            
 
             if(Input.GetMouseButton(0))
             {
@@ -111,8 +110,8 @@ namespace Rehorizon.Core
                     ClearArea();
                     ClearAreaEffect();
 
-                    print("bisa");
                     Destroy(buiilding.value.gameObject);
+                    temp = null;
                 }
                 
             }
