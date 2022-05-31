@@ -65,6 +65,7 @@ namespace Rehorizon.Core
             tileBases.Add(TileType.Red, Resources.Load<TileBase>(tilePath + "red"));
             tileBases.Add(TileType.Brown, Resources.Load<TileBase>(tilePath + "brown"));
             tileBases.Add(TileType.Nature, Resources.Load<TileBase>(tilePath + "nature"));
+            tileBases.Add(TileType.Water, Resources.Load<TileBase>(tilePath + "water"));
         }
 
         private void Update() {
@@ -95,11 +96,12 @@ namespace Rehorizon.Core
             {
                 if(buiilding.value.CanBePlaced())
                 {
-                    buiilding.value.Place();
+                    BuildingPlace();
+
                     ClearAreaEffect();
                     temp = null;
-                    
-                    
+
+
                 }
             }
             else if(Input.GetKeyDown(KeyCode.Escape))
@@ -115,6 +117,19 @@ namespace Rehorizon.Core
                 
             }
             
+        }
+
+        private void BuildingPlace()
+        {
+            if (temp.GetForRiver())
+            {
+                buiilding.value.PlaceRiver();
+                Destroy(buiilding.value.gameObject);
+            }
+            else
+            {
+                buiilding.value.Place();
+            }
         }
 
         public void GridMode()
@@ -141,7 +156,7 @@ namespace Rehorizon.Core
         }
 
 
-        private static TileBase[] GetTilesBlock(BoundsInt area, Tilemap tilemap)
+        private TileBase[] GetTilesBlock(BoundsInt area, Tilemap tilemap)
         {
             TileBase[] array = new TileBase[area.size.x * area.size.y * area.size.z];
             int counter = 0;
@@ -156,7 +171,7 @@ namespace Rehorizon.Core
             return array;
         }
 
-        private static void SetTilesBlock(BoundsInt area, TileType type, Tilemap tilemap)
+        private void SetTilesBlock(BoundsInt area, TileType type, Tilemap tilemap)
         {
             int size = area.size.x * area.size.y * area.size.z;
             TileBase[] tileArray = new TileBase[size];
@@ -164,13 +179,43 @@ namespace Rehorizon.Core
             tilemap.SetTilesBlock(area, tileArray);
         }
 
-        private static void FillTiles(TileBase[] tileArray, TileType type)
+        
+        private void FillTiles(TileBase[] tileArray, TileType type)
         {
             for (int i = 0; i < tileArray.Length; i++)
             {
                 tileArray[i] = tileBases[type];
             }
         }
+
+        // for river mechanic --------------------------------------------------------------------------
+        private void SetTilesBlock(BoundsInt area, TileType type, Tilemap tilemap, TileType otherType)
+        {
+            int size = area.size.x * area.size.y * area.size.z;
+            TileBase[] tileArray = new TileBase[size];
+            FillTiles(tileArray, type, otherType);
+            tilemap.SetTilesBlock(area, tileArray);
+        }
+
+        private void FillTiles(TileBase[] tileArray, TileType type,TileType otherType)
+        {
+            for (int i = 0; i < tileArray.Length; i++)
+            {
+                if(i > 4 & i < 10)
+                {
+                    tileArray[i] = tileBases[type];
+                }
+                else if(i <= 4 | i >= 10)
+                {
+                    tileArray[i] = tileBases[otherType];
+                }
+
+                
+                
+            }
+        }
+
+        // end -----------------------------------------------------------------------------------------
 
 
         public void InitializeWithBuilding(BuildingSO buildingSO)
@@ -289,6 +334,20 @@ namespace Rehorizon.Core
             SetTilesBlock(area, TileType.Nature, backgroundTilemap);
         }
 
+        //for river mechanic
+
+        public void TakeArea(BoundsInt area, TileType otherType)
+        {
+            SetTilesBlock(area, TileType.Empty, tempTilemap);
+            SetTilesBlock(area, TileType.Green, mainTilemap, otherType);
+        }
+
+        public void TakeAreaEffect(BoundsInt area, TileType otherType)
+        {
+            SetTilesBlock(area, TileType.Empty, tempTilemap);
+            SetTilesBlock(area, TileType.Water, backgroundTilemap, otherType);
+        }
+
         
 
     }
@@ -303,6 +362,7 @@ namespace Rehorizon.Core
         Red,
         Brown,
         Nature,
+        Water,
     }
 
 }

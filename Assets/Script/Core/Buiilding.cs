@@ -44,6 +44,19 @@ namespace Rehorizon.Core
          
       }
 
+      public void PlaceRiver()
+      {
+         Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
+         BoundsInt areaTempt = area;
+         BoundsInt areaTemptEffect = effectArea;
+         areaTempt.position = positionInt;
+         Placed = true;
+         GridBuilding.current.TakeArea(areaTempt, TileType.White);
+         GridBuilding.current.TakeAreaEffect(areaTemptEffect,TileType.Nature);
+         
+         
+      }
+
 
       
 

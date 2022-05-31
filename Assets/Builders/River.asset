@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c579272c89217248b5dc41f21cf1898, type: 3}
+  m_Name: River
+  m_EditorClassIdentifier: 
+  buiildingPrefab: {fileID: 3158394444028206670, guid: e8d8ccf7991f5e84ba7c7f98cc0c6141, type: 3}
+  buildingSprite: {fileID: 0}
+  buildingArea:
+    m_Position: {x: 1, y: 0, z: 0}
+    m_Size: {x: 5, y: 3, z: 2}
+  effectArea:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 5, y: 3, z: 1}
+  isForRiver: 1

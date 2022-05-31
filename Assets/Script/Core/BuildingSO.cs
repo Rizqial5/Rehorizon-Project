@@ -13,6 +13,7 @@ namespace Rehorizon.Core
         [SerializeField] Sprite buildingSprite;
         [SerializeField] BoundsInt buildingArea;
         [SerializeField] BoundsInt effectArea;
+        [SerializeField] bool isForRiver;
 
         public bool Placed{get; private set; }
         
@@ -54,6 +55,11 @@ namespace Rehorizon.Core
         public Buiilding GetBuildingPrefab()
         {
             return buiildingPrefab;
+        }
+
+        public bool GetForRiver()
+        {
+            return isForRiver;
         }
 
     
