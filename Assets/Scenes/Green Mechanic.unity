@@ -4412,7 +4412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridLayout: {fileID: 1042308922}
-  mainTilemap: {fileID: 0}
+  mainTilemap: {fileID: 64850160}
   tempTilemap: {fileID: 692553646}
   backgroundTilemap: {fileID: 6864733665053325438}
   isBuildMode: 0
@@ -6007,7 +6007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1839735485 &6864733665053325438
 Tilemap:
   m_ObjectHideFlags: 0

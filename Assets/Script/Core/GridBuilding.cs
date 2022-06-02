@@ -179,19 +179,27 @@ namespace Rehorizon.Core
         }
 
         
+
+
+        
         private void FillTiles(TileBase[] tileArray, TileType type)
         {
+            TileBase[] tiles = GetTilesBlock(buiilding.value.effectArea, backgroundTilemap);
             for (int i = 0; i < tileArray.Length; i++)
             {
-                tileArray[i] = tileBases[type];
+                  tileArray[i] = tileBases[type];  
             }
         }
+
+        
 
         // for river mechanic --------------------------------------------------------------------------
         private void SetTilesBlock(BoundsInt area, TileType type, Tilemap tilemap, TileType otherType)
         {
             int size = area.size.x * area.size.y * area.size.z;
             TileBase[] tileArray = new TileBase[size];
+
+            
             FillTiles(tileArray, type, otherType);
             tilemap.SetTilesBlock(area, tileArray);
         }
@@ -289,7 +297,7 @@ namespace Rehorizon.Core
 
             for (int i = 0; i < baseArrayEffect.Length; i++)
             {
-                if (baseArrayEffect[i] == tileBases[TileType.White])
+                if (baseArrayEffect[i] == tileBases[TileType.White] & baseArrayEffect[i] != tileBases[TileType.Water])
                 {
                     tileArrayEffect[i] = tileBases[TileType.Brown];
                 }
@@ -321,6 +329,21 @@ namespace Rehorizon.Core
             return true;
         }
 
+        public bool CanTakeAreaEffect(BoundsInt area)
+        {
+            TileBase[] baseArray = GetTilesBlock(area, backgroundTilemap);
+            foreach (var b in baseArray)
+            {
+                if(b == tileBases[TileType.Water])
+                {
+                    Debug.Log("Cannot place here because beside river");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public void TakeArea(BoundsInt area)
         {
             SetTilesBlock(area, TileType.Empty, tempTilemap);
@@ -330,6 +353,7 @@ namespace Rehorizon.Core
         public void TakeAreaEffect(BoundsInt area)
         {
             SetTilesBlock(area, TileType.Empty, tempTilemap);
+
             SetTilesBlock(area, TileType.Nature, backgroundTilemap);
         }
 
@@ -343,6 +367,7 @@ namespace Rehorizon.Core
 
         public void TakeAreaEffect(BoundsInt area, TileType otherType)
         {
+            
             SetTilesBlock(area, TileType.Empty, tempTilemap);
             SetTilesBlock(area, TileType.Water, backgroundTilemap, otherType);
         }

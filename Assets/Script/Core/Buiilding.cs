@@ -21,12 +21,15 @@ namespace Rehorizon.Core
       {
          Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
          BoundsInt areaTempt = area ;
+         BoundsInt areaEffectTempt = effectArea;
          areaTempt.position = positionInt;
 
-         if(GridBuilding.current.CanTakeArea(areaTempt))
+         if(GridBuilding.current.CanTakeArea(areaTempt) & GridBuilding.current.CanTakeAreaEffect(areaEffectTempt))
          {
             return true;
          }
+
+         
 
          return false;
       }
