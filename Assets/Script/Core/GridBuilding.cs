@@ -26,9 +26,6 @@ namespace Rehorizon.Core
         
 
         private static Dictionary<TileType, TileBase> tileBases = new Dictionary<TileType, TileBase>();
-
-        
-
         private Vector3 prevPos;
         private BoundsInt prevArea;   
         private BoundsInt prevAreaEffect;  
