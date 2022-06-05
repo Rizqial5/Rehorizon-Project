@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8330889739441143740}
   - component: {fileID: 5203368767690192117}
   - component: {fileID: 8226510001752494578}
+  - component: {fileID: -7928909103411007190}
   m_Layer: 0
   m_Name: Organic
   m_TagString: Untagged
@@ -196,6 +197,21 @@ MonoBehaviour:
   buildingType: 0
   buildingStats: {fileID: 11400000, guid: 7cc8c834af057a84ba0b7910968c3894, type: 2}
   amountDummy: 100
+--- !u!114 &-7928909103411007190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000496148200503736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d02a50349e782648bcafa494c11f7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsTexts:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4769768764691398362
 GameObject:
   m_ObjectHideFlags: 0

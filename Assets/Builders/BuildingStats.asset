@@ -18,18 +18,14 @@ MonoBehaviour:
     statsResources:
       statsTypes:
       - statsType: 1
-        amount: 2
+        amount: 20
       - statsType: 2
         amount: 80
   - buildingDesc: 
     buildingType: 1
     statsResources:
       statsTypes:
-      - statsType: 0
+      - statsType: 1
         amount: 50
       - statsType: 2
         amount: 20
-  - buildingDesc: 
-    buildingType: 1
-    statsResources:
-      statsTypes: []

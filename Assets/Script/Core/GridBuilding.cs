@@ -369,6 +369,11 @@ namespace Rehorizon.Core
             SetTilesBlock(area, TileType.Water, backgroundTilemap, otherType);
         }
 
+        public bool GetBuildMode()
+        {
+            return isBuildMode;
+        }
+
         
 
     }

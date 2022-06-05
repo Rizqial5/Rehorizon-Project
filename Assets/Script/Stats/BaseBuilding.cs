@@ -9,24 +9,23 @@ namespace Rehorizon.Stats
         [SerializeField] BuildingType buildingType;
         [SerializeField] BuildingStats buildingStats;
 
-        [SerializeField] float amountDummy; //for test purpose
+        
         
 
-        private void Start() {
-            print(buildingType + " " + PrintStats(buildingType,StatsType.Elektronik));
-
-            print(buildingType+""+BuidlingRequirement(buildingType, amountDummy));
+        private void Start() 
+        {
+            
         }
 
 
-        // For test purpose-------------------------------------------------------
-        private float PrintStats(BuildingType buildingType, StatsType statsType)
+        
+        public float ShowStats(BuildingType buildingType, StatsType statsType)
         {
             return buildingStats.GetStats(buildingType,statsType);
         }
 
          // For test purpose-------------------------------------------------------
-        private bool BuidlingRequirement(BuildingType buildingType, float requiredAmount)
+        private bool BuildingRequirement(BuildingType buildingType, float requiredAmount)
         {
             float woodRequirements = buildingStats.GetStats(buildingType, StatsType.Kayu);
             float elctronicRequirements = buildingStats.GetStats(buildingType, StatsType.Elektronik);
@@ -39,5 +38,11 @@ namespace Rehorizon.Stats
             return false;
         }
         //---------------------------------------------------------------------------
+
+        public BuildingType GetBuildingType()
+        {
+            return buildingType;
+        }
+        
     }
 }

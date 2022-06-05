@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1914999067413831953}
   - component: {fileID: 2393700336532138584}
   - component: {fileID: 6021297851398226373}
+  - component: {fileID: 8792112851700623974}
   m_Layer: 0
   m_Name: Anorganic
   m_TagString: Untagged
@@ -172,7 +173,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5820735865615547158
 MonoBehaviour:
@@ -247,3 +248,19 @@ MonoBehaviour:
   buildingType: 1
   buildingStats: {fileID: 11400000, guid: 7cc8c834af057a84ba0b7910968c3894, type: 2}
   amountDummy: 20
+--- !u!114 &8792112851700623974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660612964076300053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d02a50349e782648bcafa494c11f7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseBuilding: {fileID: 6021297851398226373}
+  statsTexts:
+  - {fileID: 0}
+  - {fileID: 0}
