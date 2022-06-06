@@ -21,14 +21,14 @@ namespace Rehorizon.Stats
         
         public float ShowStats(BuildingType buildingType, StatsType statsType)
         {
-            return buildingStats.GetStats(buildingType,statsType);
+            return buildingStats.GetRequiredStats(buildingType,statsType);
         }
 
          // For test purpose-------------------------------------------------------
         private bool BuildingRequirement(BuildingType buildingType, float requiredAmount)
         {
-            float woodRequirements = buildingStats.GetStats(buildingType, StatsType.Kayu);
-            float elctronicRequirements = buildingStats.GetStats(buildingType, StatsType.Elektronik);
+            float woodRequirements = buildingStats.GetRequiredStats(buildingType, StatsType.Kayu);
+            float elctronicRequirements = buildingStats.GetRequiredStats(buildingType, StatsType.Elektronik);
 
             if(woodRequirements <= requiredAmount & elctronicRequirements <= requiredAmount)
             {

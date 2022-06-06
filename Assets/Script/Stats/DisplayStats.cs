@@ -28,24 +28,22 @@ namespace Rehorizon.Stats
                 DisplayRequireStats();
                 HoverPanel();
             }
-        //   else if(!isMouseOver)
-        //   {
-        //     hoverPanel.SetActive(false);
-        //   }
         }
 
        
-
+        //Need modification Again----------------------
         public void DisplayRequireStats()
         {
-            float batuAmount = buildingStats.GetStats(buildingType,StatsType.Batu);
-            float electronicAmount = buildingStats.GetStats(buildingType,StatsType.Elektronik);
+            float batuAmount = buildingStats.GetRequiredStats(buildingType,StatsType.Batu);
+            float electronicAmount = buildingStats.GetRequiredStats(buildingType,StatsType.Elektronik);
             
             statsTexts[0].text = batuAmount.ToString();
             statsTexts[1].text = electronicAmount.ToString();
             statsTexts[2].text = buildingType.ToString();
             
         }
+        //--------------------------
+
 
         public void OnPointerEnter(PointerEventData eventData)
         {

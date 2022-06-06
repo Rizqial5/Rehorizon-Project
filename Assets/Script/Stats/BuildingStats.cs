@@ -9,21 +9,37 @@ namespace Rehorizon.Stats
     {
         [SerializeField] BuildingTypeStats[] buildingTypeStats;
 
-        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpTable;
+        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpRequiredResourceTable;
+        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpInputMaterialTable;
+        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpOutputEffectTable;
 
 
-        public float GetStats(BuildingType buildingType, StatsType statsType)
+        public float GetRequiredStats(BuildingType buildingType, StatsType statsType)
         {
             BuildLookUpResource();
 
-            return lookUpTable[buildingType][statsType];
+            return lookUpRequiredResourceTable[buildingType][statsType];
+        }
+
+        public float GetInputMaterial(BuildingType buildingType, StatsType statsType)
+        {
+            BuildLookUpInputMaterial();
+
+            return lookUpInputMaterialTable[buildingType][statsType];
+        }
+
+        public float GetOutputEfffect(BuildingType buildingType, StatsType statsType)
+        {
+            BuildLookUpOutputEffect();
+
+            return lookUpOutputEffectTable[buildingType][statsType];
         }
 
         private void BuildLookUpResource()
         {
-            if(lookUpTable != null) return;
+            if(lookUpRequiredResourceTable != null) return;
             
-            lookUpTable = new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
+            lookUpRequiredResourceTable = new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
 
             foreach (BuildingTypeStats buildingStats in buildingTypeStats)
             {
@@ -34,7 +50,45 @@ namespace Rehorizon.Stats
                     statLookUpTable[statsRequired.statsType] = statsRequired.amount;
                 }
                 
-                lookUpTable[buildingStats.buildingType] = statLookUpTable;
+                lookUpRequiredResourceTable[buildingStats.buildingType] = statLookUpTable;
+            }
+        }
+
+        private void BuildLookUpInputMaterial()
+        {
+            if(lookUpInputMaterialTable != null) return;
+            
+            lookUpInputMaterialTable= new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
+
+            foreach (BuildingTypeStats buildingStats in buildingTypeStats)
+            {
+                var statLookUpTable = new Dictionary<StatsType, float>();
+
+                foreach (StatsRequired statsRequired in buildingStats.inputResource.inputMaterial)
+                {
+                    statLookUpTable[statsRequired.statsType] = statsRequired.amount;
+                }
+                
+                lookUpInputMaterialTable[buildingStats.buildingType] = statLookUpTable;
+            }
+        }
+
+        private void BuildLookUpOutputEffect()
+        {
+            if(lookUpOutputEffectTable != null) return;
+            
+            lookUpOutputEffectTable = new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
+
+            foreach (BuildingTypeStats buildingStats in buildingTypeStats)
+            {
+                var statLookUpTable = new Dictionary<StatsType, float>();
+
+                foreach (StatsRequired statsRequired in buildingStats.outputResource.outputEffects)
+                {
+                    statLookUpTable[statsRequired.statsType] = statsRequired.amount;
+                }
+                
+                lookUpOutputEffectTable[buildingStats.buildingType] = statLookUpTable;
             }
         }
 
@@ -47,6 +101,8 @@ namespace Rehorizon.Stats
         public string buildingDesc;
         public BuildingType buildingType;
         public StatsResource statsResources;
+        public InputResource inputResource;
+        public OutputResource outputResource;
         
     }
 
@@ -62,5 +118,17 @@ namespace Rehorizon.Stats
     {
         public StatsType statsType;
         public float amount;
+    }
+
+    [System.Serializable]
+    public class InputResource 
+    {
+        public StatsRequired[] inputMaterial;
+    }
+
+    [System.Serializable]
+    public class OutputResource
+    {
+        public StatsRequired[] outputEffects;
     }
 }
