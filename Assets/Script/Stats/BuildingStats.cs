@@ -21,11 +21,20 @@ namespace Rehorizon.Stats
             return lookUpRequiredResourceTable[buildingType][statsType];
         }
 
-        public float GetInputMaterial(BuildingType buildingType, StatsType statsType)
+        public Dictionary<StatsType, float> GetInputMaterial(BuildingType buildingType)
         {
             BuildLookUpInputMaterial();
 
-            return lookUpInputMaterialTable[buildingType][statsType];
+
+            foreach (var type in lookUpInputMaterialTable)
+            {
+                if(type.Key == buildingType)
+                {
+                    return type.Value;
+                }
+            }
+            
+            return null;
         }
 
         public float GetOutputEfffect(BuildingType buildingType, StatsType statsType)

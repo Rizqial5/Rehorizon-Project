@@ -14,7 +14,7 @@ namespace Rehorizon.Stats
 
         private void Start() 
         {
-            
+           ShowInputMaterial(buildingType);
         }
 
 
@@ -22,6 +22,16 @@ namespace Rehorizon.Stats
         public float ShowStats(BuildingType buildingType, StatsType statsType)
         {
             return buildingStats.GetRequiredStats(buildingType,statsType);
+        }
+
+        public void ShowInputMaterial(BuildingType buildingType)
+        {
+            Dictionary<StatsType, float> materials = buildingStats.GetInputMaterial(buildingType);
+
+            foreach (var item in materials)
+            {
+                print(item.Key + " : " + item.Value);
+            }
         }
 
          // For test purpose-------------------------------------------------------
