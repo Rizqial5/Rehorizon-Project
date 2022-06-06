@@ -14,11 +14,19 @@ namespace Rehorizon.Stats
         Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpOutputEffectTable;
 
 
-        public float GetRequiredStats(BuildingType buildingType, StatsType statsType)
+        public Dictionary<StatsType, float> GetRequiredStats(BuildingType buildingType)
         {
             BuildLookUpResource();
 
-            return lookUpRequiredResourceTable[buildingType][statsType];
+            foreach (var type in lookUpRequiredResourceTable)
+            {
+                if(type.Key == buildingType)
+                {
+                    return type.Value;
+                }
+            }
+            
+            return null;
         }
 
         public Dictionary<StatsType, float> GetInputMaterial(BuildingType buildingType)

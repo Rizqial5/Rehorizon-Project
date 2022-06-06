@@ -12,6 +12,9 @@ namespace Rehorizon.Stats
         
         
 
+        
+        
+
         private void Start() 
         {
            ShowInputMaterial(buildingType);
@@ -19,10 +22,7 @@ namespace Rehorizon.Stats
 
 
         
-        public float ShowStats(BuildingType buildingType, StatsType statsType)
-        {
-            return buildingStats.GetRequiredStats(buildingType,statsType);
-        }
+        
 
         public void ShowInputMaterial(BuildingType buildingType)
         {
@@ -35,16 +35,18 @@ namespace Rehorizon.Stats
         }
 
          // For test purpose-------------------------------------------------------
-        private bool BuildingRequirement(BuildingType buildingType, float requiredAmount)
+        public bool BuildingRequirement(BuildingType buildingType, StatsType statsType, float contohAmountInventory)
         {
-            float woodRequirements = buildingStats.GetRequiredStats(buildingType, StatsType.Kayu);
-            float elctronicRequirements = buildingStats.GetRequiredStats(buildingType, StatsType.Elektronik);
 
-            if(woodRequirements <= requiredAmount & elctronicRequirements <= requiredAmount)
+            Dictionary<StatsType, float> materials = buildingStats.GetRequiredStats(buildingType);
+            //Membuat dictionary resource yang ada
+
+            if(contohAmountInventory >= materials[statsType])
             {
                 return true;
             }
             
+            Debug.Log(statsType + " masih kurang");
             return false;
         }
         //---------------------------------------------------------------------------

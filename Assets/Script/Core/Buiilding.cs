@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rehorizon.Stats;
 
 namespace Rehorizon.Core
 {
@@ -10,10 +11,21 @@ namespace Rehorizon.Core
       public TileType colorCell;
       public TileType colorEffectCell;
 
+      [SerializeField] BuildingType buildingType;
+      [SerializeField] float amountBatu;
+      [SerializeField] float amountElektronic;
+
       
 
       public BoundsInt area;
       public BoundsInt effectArea;
+
+      BaseBuilding baseBuilding;
+
+      private void Awake() 
+      {
+         baseBuilding = GetComponent<BaseBuilding>();
+      }
      
       
 
@@ -24,14 +36,15 @@ namespace Rehorizon.Core
          BoundsInt areaEffectTempt = effectArea;
          areaTempt.position = positionInt;
 
-         if(GridBuilding.current.CanTakeArea(areaTempt) & GridBuilding.current.CanTakeAreaEffect(areaEffectTempt))
-         {
-            return true;
-         }
+         if(!GridBuilding.current.CanTakeArea(areaTempt) & !GridBuilding.current.CanTakeAreaEffect(areaEffectTempt)) return false;
+         if(!baseBuilding.BuildingRequirement(buildingType,StatsType.Batu,amountBatu)) return false;
+         if(!baseBuilding.BuildingRequirement(buildingType,StatsType.Elektronik,amountElektronic)) return false;
+         
+         return true;
+         
 
          
 
-         return false;
       }
 
       public void Place()

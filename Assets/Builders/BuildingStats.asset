@@ -18,14 +18,40 @@ MonoBehaviour:
     statsResources:
       statsTypes:
       - statsType: 1
-        amount: 20
+        amount: 3
       - statsType: 2
-        amount: 80
+        amount: 2
+    inputResource:
+      inputMaterial:
+      - statsType: 3
+        amount: 6
+    outputResource:
+      outputEffects: []
   - buildingDesc: 
     buildingType: 1
     statsResources:
       statsTypes:
       - statsType: 1
-        amount: 50
+        amount: 6
       - statsType: 2
-        amount: 20
+        amount: 4
+    inputResource:
+      inputMaterial:
+      - statsType: 2
+        amount: 10
+    outputResource:
+      outputEffects: []
+  - buildingDesc: 
+    buildingType: 2
+    statsResources:
+      statsTypes:
+      - statsType: 1
+        amount: 12
+      - statsType: 2
+        amount: 8
+      - statsType: 3
+        amount: 8
+    inputResource:
+      inputMaterial: []
+    outputResource:
+      outputEffects: []
