@@ -26,16 +26,11 @@ namespace Rehorizon.Inventory
 
         public GameObject timeControllerObject;
         
-        void Start()
-        {
-            
+        private void Awake() {
             srcTime = timeControllerObject.GetComponent<timeController>();
         }
-
-        // Update is called once per frame
-        void Update()
+        void Start()
         {
-            
             anorganic.text = srcTxt.GetAmountInventory(StatsType.Elektronik).ToString();
             organic.text = srcTxt.GetAmountInventory(StatsType.Kompos).ToString();
             electric.text = srcTxt.GetAmountInventory(StatsType.Baterai).ToString();
@@ -43,6 +38,20 @@ namespace Rehorizon.Inventory
             water.text = srcTxt.GetAmountInventory(StatsType.Water).ToString();
             timeCounter.text = srcTime.Get_FullTime();
             dayCounter.text = string.Format("Day : {0}", srcTime.Get_DayCount().ToString()) ;
+            
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            anorganic.text = srcTxt.GetAmountInventory(StatsType.Elektronik).ToString();
+            organic.text = srcTxt.GetAmountInventory(StatsType.Kompos).ToString();
+            electric.text = srcTxt.GetAmountInventory(StatsType.Baterai).ToString();
+            stone.text = srcTxt.GetAmountInventory(StatsType.Batu).ToString();
+            water.text = srcTxt.GetAmountInventory(StatsType.Water).ToString();
+            timeCounter.text = srcTime.Get_FullTime();
+            dayCounter.text = string.Format("Day : {0}", srcTime.Get_DayCount().ToString()) ;
+            
         }
     }
 }
