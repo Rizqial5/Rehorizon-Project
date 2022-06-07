@@ -19,4 +19,5 @@ MonoBehaviour:
     m_Size: {x: 2, y: 2, z: 2}
   effectArea:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 3, y: 3, z: 1}
+    m_Size: {x: 0, y: 0, z: 0}
+  isForRiver: 0
