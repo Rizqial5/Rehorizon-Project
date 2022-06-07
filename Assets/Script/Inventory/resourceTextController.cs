@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rehorizon.TimeManager;
 
 
 namespace Rehorizon.Inventory
@@ -20,13 +21,15 @@ namespace Rehorizon.Inventory
 
         public GameObject resourceControllerObject;
         [SerializeField] InventoryData srcTxt;
+        timeController srcTime;
+
 
         public GameObject timeControllerObject;
-        // timeController srcTime;
+        
         void Start()
         {
             
-            // srcTime = timeControllerObject.GetComponent<timeController>();
+            srcTime = timeControllerObject.GetComponent<timeController>();
         }
 
         // Update is called once per frame
@@ -38,8 +41,8 @@ namespace Rehorizon.Inventory
             electric.text = srcTxt.GetAmountInventory(StatsType.Elektronik).ToString();
             stone.text = srcTxt.GetAmountInventory(StatsType.Batu).ToString();
             water.text = srcTxt.GetAmountInventory(StatsType.Water).ToString();
-            // timeCounter.text = srcTime.Get_FullTime();
-            // dayCounter.text = string.Format("Day : {0}", srcTime.Get_DayCount().ToString()) ;
+            timeCounter.text = srcTime.Get_FullTime();
+            dayCounter.text = string.Format("Day : {0}", srcTime.Get_DayCount().ToString()) ;
         }
     }
 }

@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class timeController : MonoBehaviour
+namespace Rehorizon.TimeManager
+{
+    public class timeController : MonoBehaviour
 {
     public int hour = 0;
     public float minutes = 0;
@@ -50,4 +52,6 @@ public class timeController : MonoBehaviour
         string fulltime = string.Format("{0:00}:{1:00} {2}", hour, Get_Minutes(), dayStatus);
         return fulltime;
     }
+}
+
 }
