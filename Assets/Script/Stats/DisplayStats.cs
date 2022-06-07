@@ -75,9 +75,9 @@ namespace Rehorizon.Stats
         private void HoverPanel()
         {
             hoverPanel.SetActive(true);
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = Camera.main.nearClipPlane;
-            hoverPanel.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            // Vector3 mousePos = Input.mousePosition;
+            // mousePos.z = Camera.main.nearClipPlane;
+            // hoverPanel.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
         }
     }
 }

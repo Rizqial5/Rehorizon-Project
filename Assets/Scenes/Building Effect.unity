@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98c82ae0cbc6a848b695a95977ebc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryData: {fileID: 0}
   builder: 0
   builderMaxCap: 0
   anorganicWaste: 100
@@ -2026,6 +2027,7 @@ MonoBehaviour:
   dayCounter: {fileID: 2122858142}
   timeCounter: {fileID: 1153390450}
   resourceControllerObject: {fileID: 45447076}
+  srcTxt: {fileID: 11400000, guid: a33939ce936afc844807b273adc157d3, type: 2}
   timeControllerObject: {fileID: 2105881055}
 --- !u!1 &1617836224
 GameObject:
@@ -5980,11 +5982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7044372401347953362, guid: 20d23afa8e4340046a789cd9d8047663, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: -459
       objectReference: {fileID: 0}
     - target: {fileID: 7044372401347953362, guid: 20d23afa8e4340046a789cd9d8047663, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 7044372401347953362, guid: 20d23afa8e4340046a789cd9d8047663, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -1,7 +1,8 @@
 public enum StatsType
 {
-    Kayu,
+    Baterai,
     Batu,
     Elektronik,
-    Kompos
+    Kompos,
+    Water
 }
