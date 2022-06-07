@@ -16,6 +16,8 @@ namespace Rehorizon.Stats
         [SerializeField] GameObject hoverPanel;
         [SerializeField] GridBuilding gridBuilding;
 
+        [SerializeField] Transform positionHover;
+
         private bool isMouseOver = false ;
 
         private void Update() 
@@ -75,9 +77,8 @@ namespace Rehorizon.Stats
         private void HoverPanel()
         {
             hoverPanel.SetActive(true);
-            // Vector3 mousePos = Input.mousePosition;
-            // mousePos.z = Camera.main.nearClipPlane;
-            // hoverPanel.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            
+            hoverPanel.transform.position = positionHover.position;
         }
     }
 }

@@ -4,5 +4,7 @@ public enum StatsType
     Batu,
     Elektronik,
     Kompos,
-    Water
+    Water,
+    Biogas,
+    
 }
