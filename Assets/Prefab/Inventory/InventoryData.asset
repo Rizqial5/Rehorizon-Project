@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryStats:
   - statsType: 0
-    amount: 0
+    amount: 5
   - statsType: 1
-    amount: 0
+    amount: 5
   - statsType: 2
-    amount: 0
+    amount: 5
   - statsType: 3
-    amount: 0
+    amount: 5
   - statsType: 4
-    amount: 0
+    amount: 5
   amountMax: 1000
