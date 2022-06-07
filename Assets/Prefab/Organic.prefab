@@ -139,8 +139,7 @@ MonoBehaviour:
   colorCell: 2
   colorEffectCell: 4
   buildingType: 0
-  amountBatu: 3
-  amountElektronic: 2
+  inventoryData: {fileID: 11400000, guid: a33939ce936afc844807b273adc157d3, type: 2}
   area:
     m_Position: {x: -1, y: 0, z: 0}
     m_Size: {x: 2, y: 2, z: 2}
@@ -199,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: 0
   buildingStats: {fileID: 11400000, guid: 7cc8c834af057a84ba0b7910968c3894, type: 2}
+  inventoryData: {fileID: 11400000, guid: a33939ce936afc844807b273adc157d3, type: 2}
 --- !u!114 &-7928909103411007190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   statsTexts:
   - {fileID: 0}
   - {fileID: 0}
-  buildingStats: {fileID: 0}
+  buildingStats: {fileID: 11400000, guid: 7cc8c834af057a84ba0b7910968c3894, type: 2}
   hoverPanel: {fileID: 0}
   gridBuilding: {fileID: 0}
 --- !u!1 &4769768764691398362
@@ -264,8 +264,7 @@ MonoBehaviour:
   colorCell: 2
   colorEffectCell: 0
   buildingType: 0
-  amountBatu: 0
-  amountElektronic: 0
+  inventoryData: {fileID: 0}
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}

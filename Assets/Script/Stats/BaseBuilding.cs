@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rehorizon.Inventory;
 
 namespace Rehorizon.Stats
 {
@@ -8,6 +9,7 @@ namespace Rehorizon.Stats
     {
         [SerializeField] BuildingType buildingType;
         [SerializeField] BuildingStats buildingStats;
+        [SerializeField] InventoryData inventoryData;
 
         
         
@@ -26,7 +28,7 @@ namespace Rehorizon.Stats
 
         public void ShowInputMaterial(BuildingType buildingType)
         {
-            Dictionary<StatsType, float> materials = buildingStats.GetInputMaterial(buildingType);
+            Dictionary<StatsType, int> materials = buildingStats.GetInputMaterial(buildingType);
 
             foreach (var item in materials)
             {
@@ -35,14 +37,16 @@ namespace Rehorizon.Stats
         }
 
          // For test purpose-------------------------------------------------------
-        public bool BuildingRequirement(BuildingType buildingType, StatsType statsType, float contohAmountInventory)
+        public bool BuildingRequirement(BuildingType buildingType, StatsType statsType, int amountInventory)
         {
 
-            Dictionary<StatsType, float> materials = buildingStats.GetRequiredStats(buildingType);
+            Dictionary<StatsType, int> materials = buildingStats.GetRequiredStats(buildingType);
+            
             //Membuat dictionary resource yang ada
 
-            if(contohAmountInventory >= materials[statsType])
+            if(amountInventory >= materials[statsType])
             {
+                inventoryData.SetAmountInventory(statsType,-materials[statsType]);
                 return true;
             }
             

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rehorizon.Stats;
+using Rehorizon.Inventory;
 
 namespace Rehorizon.Core
 {
@@ -12,8 +13,7 @@ namespace Rehorizon.Core
       public TileType colorEffectCell;
 
       [SerializeField] BuildingType buildingType;
-      [SerializeField] float amountBatu;
-      [SerializeField] float amountElektronic;
+      [SerializeField] InventoryData inventoryData;
 
       
 
@@ -30,24 +30,30 @@ namespace Rehorizon.Core
       
 
       public bool CanBePlaced()
-      {
-         Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
-         BoundsInt areaTempt = area ;
-         BoundsInt areaEffectTempt = effectArea;
-         areaTempt.position = positionInt;
+        {
+            Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
+            BoundsInt areaTempt = area;
+            BoundsInt areaEffectTempt = effectArea;
+            areaTempt.position = positionInt;
 
-         if(!GridBuilding.current.CanTakeArea(areaTempt) & !GridBuilding.current.CanTakeAreaEffect(areaEffectTempt)) return false;
-         if(!baseBuilding.BuildingRequirement(buildingType,StatsType.Batu,amountBatu)) return false;
-         if(!baseBuilding.BuildingRequirement(buildingType,StatsType.Elektronik,amountElektronic)) return false;
-         
-         return true;
-         
+            if (!GridBuilding.current.CanTakeArea(areaTempt) & !GridBuilding.current.CanTakeAreaEffect(areaEffectTempt)) return false;
+            if (!CheckResource(StatsType.Batu)) return false;
+            if (!CheckResource(StatsType.Elektronik)) return false;
 
-         
+            return true;
 
-      }
 
-      public void Place()
+
+
+        }
+
+        private bool CheckResource(StatsType statsType)
+        {
+            int amountItem = inventoryData.GetAmountInventory(statsType);
+            return baseBuilding.BuildingRequirement(buildingType, statsType, amountItem);
+        }
+
+        public void Place()
       {
          Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
          BoundsInt areaTempt = area;

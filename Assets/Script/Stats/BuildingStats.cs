@@ -9,12 +9,12 @@ namespace Rehorizon.Stats
     {
         [SerializeField] BuildingTypeStats[] buildingTypeStats;
 
-        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpRequiredResourceTable;
-        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpInputMaterialTable;
-        Dictionary<BuildingType,Dictionary<StatsType,float>> lookUpOutputEffectTable;
+        Dictionary<BuildingType,Dictionary<StatsType,int>> lookUpRequiredResourceTable;
+        Dictionary<BuildingType,Dictionary<StatsType,int>> lookUpInputMaterialTable;
+        Dictionary<BuildingType,Dictionary<StatsType,int>> lookUpOutputEffectTable;
 
 
-        public Dictionary<StatsType, float> GetRequiredStats(BuildingType buildingType)
+        public Dictionary<StatsType, int> GetRequiredStats(BuildingType buildingType)
         {
             BuildLookUpResource();
 
@@ -29,7 +29,7 @@ namespace Rehorizon.Stats
             return null;
         }
 
-        public Dictionary<StatsType, float> GetInputMaterial(BuildingType buildingType)
+        public Dictionary<StatsType, int> GetInputMaterial(BuildingType buildingType)
         {
             BuildLookUpInputMaterial();
 
@@ -56,11 +56,11 @@ namespace Rehorizon.Stats
         {
             if(lookUpRequiredResourceTable != null) return;
             
-            lookUpRequiredResourceTable = new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
+            lookUpRequiredResourceTable = new  Dictionary<BuildingType,Dictionary<StatsType,int>>();
 
             foreach (BuildingTypeStats buildingStats in buildingTypeStats)
             {
-                var statLookUpTable = new Dictionary<StatsType, float>();
+                var statLookUpTable = new Dictionary<StatsType, int>();
 
                 foreach (StatsRequired statsRequired in buildingStats.statsResources.statsTypes)
                 {
@@ -75,11 +75,11 @@ namespace Rehorizon.Stats
         {
             if(lookUpInputMaterialTable != null) return;
             
-            lookUpInputMaterialTable= new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
+            lookUpInputMaterialTable= new  Dictionary<BuildingType,Dictionary<StatsType,int>>();
 
             foreach (BuildingTypeStats buildingStats in buildingTypeStats)
             {
-                var statLookUpTable = new Dictionary<StatsType, float>();
+                var statLookUpTable = new Dictionary<StatsType, int>();
 
                 foreach (StatsRequired statsRequired in buildingStats.inputResource.inputMaterial)
                 {
@@ -94,11 +94,11 @@ namespace Rehorizon.Stats
         {
             if(lookUpOutputEffectTable != null) return;
             
-            lookUpOutputEffectTable = new  Dictionary<BuildingType,Dictionary<StatsType,float>>();
+            lookUpOutputEffectTable = new  Dictionary<BuildingType,Dictionary<StatsType,int>>();
 
             foreach (BuildingTypeStats buildingStats in buildingTypeStats)
             {
-                var statLookUpTable = new Dictionary<StatsType, float>();
+                var statLookUpTable = new Dictionary<StatsType, int>();
 
                 foreach (StatsRequired statsRequired in buildingStats.outputResource.outputEffects)
                 {
@@ -134,7 +134,7 @@ namespace Rehorizon.Stats
     public class StatsRequired
     {
         public StatsType statsType;
-        public float amount;
+        public int amount;
     }
 
     [System.Serializable]

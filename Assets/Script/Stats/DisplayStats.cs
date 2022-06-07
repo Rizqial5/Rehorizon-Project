@@ -35,10 +35,10 @@ namespace Rehorizon.Stats
         public void DisplayRequireStats()
         {
             
-            Dictionary<StatsType, float> materials = buildingStats.GetRequiredStats(buildingType);
+            Dictionary<StatsType, int> materials = buildingStats.GetRequiredStats(buildingType);
 
-            float batuAmount;
-            float electronicAmount;
+            int batuAmount;
+            int electronicAmount;
 
             foreach (var item in materials)
             {
