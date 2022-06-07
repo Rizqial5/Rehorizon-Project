@@ -36,9 +36,9 @@ namespace Rehorizon.Inventory
         void Update()
         {
             
-            anorganic.text = srcTxt.GetAmountInventory(StatsType.Baterai).ToString();
+            anorganic.text = srcTxt.GetAmountInventory(StatsType.Elektronik).ToString();
             organic.text = srcTxt.GetAmountInventory(StatsType.Kompos).ToString();
-            electric.text = srcTxt.GetAmountInventory(StatsType.Elektronik).ToString();
+            electric.text = srcTxt.GetAmountInventory(StatsType.Baterai).ToString();
             stone.text = srcTxt.GetAmountInventory(StatsType.Batu).ToString();
             water.text = srcTxt.GetAmountInventory(StatsType.Water).ToString();
             timeCounter.text = srcTime.Get_FullTime();

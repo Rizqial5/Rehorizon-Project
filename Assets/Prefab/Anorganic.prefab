@@ -144,9 +144,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7156691263304085786}
+  - component: {fileID: 2393700336532138584}
   - component: {fileID: 5820735865615547158}
   - component: {fileID: 1914999067413831953}
-  - component: {fileID: 2393700336532138584}
   - component: {fileID: 6021297851398226373}
   - component: {fileID: 8792112851700623974}
   m_Layer: 0
@@ -177,36 +177,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5820735865615547158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660612964076300053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d80af79720de184da2d439c5c41b44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorCell: 2
-  colorEffectCell: 4
-  buildingType: 0
-  inventoryData: {fileID: 11400000, guid: a33939ce936afc844807b273adc157d3, type: 2}
-  area:
-    m_Position: {x: -1, y: 0, z: 0}
-    m_Size: {x: 1, y: 2, z: 2}
-  effectArea:
-    m_Position: {x: -1, y: 0, z: 0}
-    m_Size: {x: 3, y: 3, z: 1}
---- !u!222 &1914999067413831953
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660612964076300053}
-  m_CullTransparentMesh: 1
 --- !u!114 &2393700336532138584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +207,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5820735865615547158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660612964076300053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d80af79720de184da2d439c5c41b44e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorCell: 2
+  colorEffectCell: 4
+  buildingType: 0
+  inventoryData: {fileID: 11400000, guid: a33939ce936afc844807b273adc157d3, type: 2}
+  area:
+    m_Position: {x: -1, y: 0, z: 0}
+    m_Size: {x: 1, y: 2, z: 2}
+  effectArea:
+    m_Position: {x: -1, y: 0, z: 0}
+    m_Size: {x: 3, y: 3, z: 1}
+--- !u!222 &1914999067413831953
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660612964076300053}
+  m_CullTransparentMesh: 1
 --- !u!114 &6021297851398226373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +271,4 @@ MonoBehaviour:
   buildingStats: {fileID: 11400000, guid: 7cc8c834af057a84ba0b7910968c3894, type: 2}
   hoverPanel: {fileID: 0}
   gridBuilding: {fileID: 0}
+  positionHover: {fileID: 0}
