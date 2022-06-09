@@ -64,6 +64,11 @@ namespace Rehorizon.Factory
 
         }
 
+        public void XButton()
+        {
+            factoryMechanic.HidePanel();
+        }
+
         
     }
 }

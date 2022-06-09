@@ -275,8 +275,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Factory Panel '
       objectReference: {fileID: 0}
-    - target: {fileID: 686298306470849732, guid: e3361891ababfff4b967ed037c3ee750, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3466616050868904788, guid: e3361891ababfff4b967ed037c3ee750, type: 3}
+      propertyPath: m_BlockingObjects
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8556130665515202873, guid: e3361891ababfff4b967ed037c3ee750, type: 3}

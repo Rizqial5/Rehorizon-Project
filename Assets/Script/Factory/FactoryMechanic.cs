@@ -5,6 +5,7 @@ using Rehorizon.Core;
 using Rehorizon.Stats;
 using Rehorizon.Inventory;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Rehorizon.Factory
 {
@@ -28,17 +29,22 @@ namespace Rehorizon.Factory
             isPanelShow = false;
         }
 
+        private void Update() {
+            factoryPanel.gameObject.SetActive(isPanelShow);
+        }
 
 
         private void OnMouseDown() 
         {
+            if(EventSystem.current.IsPointerOverGameObject()) return;
             if(GridBuilding.current.GetBuildMode()) return;
+            
 
-            isPanelShow = !isPanelShow;
-            factoryPanel.gameObject.SetActive(isPanelShow);
+            isPanelShow = true;
+            
             
         }
-
+         
         private Dictionary<StatsType, int> ShowMaterial()
         {
             Dictionary<StatsType, int> materials = buildingStats.GetInputMaterial(buildingType);
@@ -100,6 +106,11 @@ namespace Rehorizon.Factory
         public void SetResource(int amount)
         {
             inventoryData.SetAmountInventory(GetMaterialName(),amount);
+        }
+
+        public void HidePanel()
+        {
+            isPanelShow = false;
         }
 
         
