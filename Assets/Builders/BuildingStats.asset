@@ -26,7 +26,9 @@ MonoBehaviour:
       - statsType: 3
         amount: 6
     outputResource:
-      outputEffects: []
+      outputEffects:
+      - statsType: 5
+        amount: 1
   - buildingDesc: 
     buildingType: 1
     statsResources:
@@ -40,7 +42,9 @@ MonoBehaviour:
       - statsType: 2
         amount: 10
     outputResource:
-      outputEffects: []
+      outputEffects:
+      - statsType: 0
+        amount: 1
   - buildingDesc: 
     buildingType: 2
     statsResources:

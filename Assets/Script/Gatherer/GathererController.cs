@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rehorizon.Core;
+using UnityEngine.EventSystems;
 
 namespace Rehorizon.Gatherer
 {
@@ -29,7 +30,7 @@ namespace Rehorizon.Gatherer
 
         private void OnMouseDown() 
         {
-            
+            if(EventSystem.current.IsPointerOverGameObject()) return;
             if(gridBuilding.GetBuildMode()) return;
 
             

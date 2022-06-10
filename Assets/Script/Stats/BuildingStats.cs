@@ -45,11 +45,11 @@ namespace Rehorizon.Stats
             return null;
         }
 
-        public float GetOutputEfffect(BuildingType buildingType, StatsType statsType)
+        public Dictionary<StatsType, int> GetOutputEfffectStats(BuildingType buildingType)
         {
             BuildLookUpOutputEffect();
 
-            return lookUpOutputEffectTable[buildingType][statsType];
+            return lookUpOutputEffectTable[buildingType];
         }
 
         private void BuildLookUpResource()

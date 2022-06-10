@@ -28,6 +28,7 @@ namespace Rehorizon.Inventory
             
             int total = amount + inventoryLookupTable[statsType];
 
+            if(total < 0) return;
             if(total <= amountMax)
             {
                 inventoryLookupTable[statsType] = total;
