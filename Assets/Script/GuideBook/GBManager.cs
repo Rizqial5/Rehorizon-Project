@@ -26,7 +26,7 @@ namespace Rehorizon.GuideBook
 
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                GBController.UnlockDocument(1);
+                GBController.UnlockDocument(3);
             }
         }
 
