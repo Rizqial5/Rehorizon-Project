@@ -1,0 +1,33 @@
+
+{
+        "GuideBook" :
+        [
+                {
+                        "documentId" : 1,
+                        "tabName" : "O2",
+                        "title" : "Oksigen",
+                        "description" : "Oksigen atau zat asam adalah unsur kimia dalam sistem tabel periodik yang mempunyai lambang O dan nomor atom 8. Tidak berwarna, tidak berasa, dan tidak berbau, oksigen merupakan unsur kelompok kalkogen yang mudah bereaksi dengan hampir semua unsur lain (utamanya dijadikan oksida). Sebagai unsur dengan jumlah yang paling melimpah ketiga di dunia semesta sesuai massa dan unsur paling melimpah di kerak bumi.",
+                        "isDesc2Unlock" : false,
+                        "description2":"Manfaat : Degenerasi sel secara biologi, Gas yang diperlukan dalam sistem pernapasan makhluk hidup. Dihasilkan oleh : Fotosintesis tumbuhan dan fitoplankton"
+                },
+
+                {
+                        "documentId" : 2,
+                        "tabName" : "CO2",
+                        "title" : "Karbondioksida",
+                        "description" : "Karbondioksida atau zat asam arang adalah sejenis senyawa kimia dengan lambang CO2 yang terdiri dari dua atom oksigen yang terikat secara kovalen dengan sebuah atom karbon. Rata-rata konsentrasi karbondioksida di atmosfer bumi kurang lebih 387 ppm berdasarkan volume, meski jumlahnya bervariasi tergantung pada lokasi dan waktu.",
+                        "isDesc2Unlock" : false,
+                        "description2":"Manfaat : Bahan fotosintesis tumbuhan dan fitoplankton. Dihasilkan oleh : Pembusukkan sampah, Seluruh manusia, hewan, tumbuhan, fungi, dan mikroorganisme pada bagian respirasi , Pembakaran bahan bakar fosil, Energi pembangkitan listrik, Gunung berapi dan bagian geotermal lain. Dapat menyebabkan : Efek rumah kaca dan pemanasan global, Mengganggu kesehatan"
+                },
+
+                {
+                        "documentId" : 3,
+                        "tabName" : "CH4",
+                        "title" : "Metana",
+                        "description" : "Metana adalah hidrokarbon berbentuk gas dengan rumus kimia CH4 yang tidak berwarna dan tidak berbau. Merupakan molekul tetrahedral dengan empat ikatan C-H yang ekuivalen. Konsentrasi metana di atmosfer adalah 1.800 dinyatakan dalam fraksi mol",
+                        "isDesc2Unlock" : false,
+                        "description2":"Manfaat : Bahan bakar kendaraan dan pembangkitan listrik, Bahan dalam proses industri kimia. Dihasilkan oleh : Pembusukkan sampah, Sektor pertanian, energi, industri, agrikultur, serta penggunaan lahan. Dapat menyebabkan : Efek rumah kaca dan pemanasan global, Kebakaran dan ledakan, Mengganggu kesehatan"
+                }
+        ]
+        
+}
