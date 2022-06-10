@@ -18,6 +18,7 @@ namespace Rehorizon.Factory
         [SerializeField] InventoryData inventoryData;
 
         private Dictionary<StatsType, int> inputMaterial;
+        private Dictionary<StatsType, int> outputMaterial;
         private int finalValue;
         
 
@@ -52,6 +53,11 @@ namespace Rehorizon.Factory
             return materials;
         }
 
+        private Dictionary<StatsType, int> ShowOutputMaterial()
+        {
+            return buildingStats.GetOutputEfffectStats(buildingType);
+        }
+
         
 
         public StatsType GetMaterialName()
@@ -70,6 +76,21 @@ namespace Rehorizon.Factory
 
         }
 
+        public StatsType GetOutputMaterialName()
+        {
+            outputMaterial = ShowOutputMaterial();
+            
+            StatsType materialName;
+
+            foreach (var item in outputMaterial)
+            {
+                materialName = item.Key;
+                return materialName;
+            }
+
+            return StatsType.Baterai ;
+        }
+
         public int GetMaterialValue()
         {
             inputMaterial = ShowMaterial();
@@ -83,6 +104,12 @@ namespace Rehorizon.Factory
             }
 
             return 0 ;
+
+        }
+
+        public int GetOutputValue()
+        {
+            return inventoryData.GetAmountInventory(GetOutputMaterialName());
 
         }
 
@@ -106,6 +133,11 @@ namespace Rehorizon.Factory
         public void SetResource(int amount)
         {
             inventoryData.SetAmountInventory(GetMaterialName(),amount);
+        }
+
+        public void SetResourceValue(int amount)
+        {
+            inventoryData.SetAmountInventory(GetOutputMaterialName(),amount);
         }
 
         public void HidePanel()

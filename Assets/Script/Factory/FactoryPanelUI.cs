@@ -23,10 +23,14 @@ namespace Rehorizon.Factory
         {
             buildingTittle.text = factoryMechanic.GetBuildingType().ToString();
             materialName.text = factoryMechanic.GetMaterialName().ToString();
+            materialResultName.text = factoryMechanic.GetOutputMaterialName().ToString();
             requirementsValue.text = materialName.text + " : " + factoryMechanic.GetMaterialValue().ToString();
             valueResource.text = factoryMechanic.GetResourceAvailable().ToString();
             valueMaterial.text = GetTempValue().ToString();
+            valueOutput.text = factoryMechanic.GetOutputValue().ToString();
         }
+
+        
 
         public void AddValue()
         {
@@ -60,9 +64,13 @@ namespace Rehorizon.Factory
                 return;
             }
 
+
             factoryMechanic.SetResource(-tempValue);
+            factoryMechanic.SetResourceValue(1);
 
         }
+
+        
 
         public void XButton()
         {
