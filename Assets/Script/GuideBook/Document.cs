@@ -9,5 +9,6 @@ namespace Rehorizon.GuideBook
         public string description;
         public string description2;
         public bool isDesc2Unlock;
+        public bool isDesc1Unlock;
     }   
 }

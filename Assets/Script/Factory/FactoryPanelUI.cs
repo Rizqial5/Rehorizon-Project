@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Rehorizon.Factory
 {
@@ -14,6 +15,7 @@ namespace Rehorizon.Factory
         [SerializeField] Text requirementsValue;
 
         [SerializeField] FactoryMechanic factoryMechanic;
+        [SerializeField] UnityEvent materialPopUp;
 
         private int tempValue = 0;
 
@@ -60,7 +62,7 @@ namespace Rehorizon.Factory
             if(factoryMechanic.GetResourceAvailable() <= 0) return;
             if(tempValue < factoryMechanic.GetMaterialValue())
             {
-                print("Bahan " + factoryMechanic.GetMaterialName() + " masih belum cukup"); //Pop up bahan ndak cukup
+                materialPopUp.Invoke();
                 return;
             }
 

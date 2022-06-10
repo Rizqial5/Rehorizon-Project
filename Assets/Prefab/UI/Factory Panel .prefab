@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8556130665515202873
 Transform:
   m_ObjectHideFlags: 0
@@ -312,6 +312,9 @@ MonoBehaviour:
   valueResource: {fileID: 3115275914166448140}
   requirementsValue: {fileID: 4715025813129418680}
   factoryMechanic: {fileID: 0}
+  materialPopUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1285145470926807169
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4099107358594280775}
   - component: {fileID: 158733786993042450}
-  - component: {fileID: 2673532352617001825}
+  - component: {fileID: 2112819797704606338}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -425,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -8.7}
+  m_AnchoredPosition: {x: -1.8, y: -0.6}
   m_SizeDelta: {x: 135.05, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &158733786993042450
@@ -436,7 +439,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507667476743712903}
   m_CullTransparentMesh: 1
---- !u!114 &2673532352617001825
+--- !u!114 &2112819797704606338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,31 +448,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507667476743712903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Arrow
+  m_Sprite: {fileID: 21300000, guid: 8c52e372c654eca4db915c63e1f4def2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1565088776459629026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,9 +1531,9 @@ RectTransform:
   m_Father: {fileID: 3335057620110027363}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.4000015, y: -24.500046}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.4000015, y: 19.800003}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7269389060375977101
@@ -1657,7 +1656,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '{Gambar Material}'
+  m_Text: 
 --- !u!1 &7569594409724704846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '{Gambar Material}'
+  m_Text: 
 --- !u!1 &8315022634336119392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,9 +2143,9 @@ RectTransform:
   m_Father: {fileID: 4402265103118430559}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.4000015, y: -24.500046}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.4000015, y: 17.599998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5087239634377909072

@@ -31,6 +31,7 @@ namespace Rehorizon.Factory
         }
 
         private void Update() {
+            if(!factoryPanel) return;
             factoryPanel.gameObject.SetActive(isPanelShow);
         }
 

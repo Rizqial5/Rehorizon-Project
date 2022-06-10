@@ -10,9 +10,11 @@ namespace Rehorizon.Inventory
     public class InventoryData : ScriptableObject 
     {
         [SerializeField] InventoryStats[] inventoryStats;
+        [SerializeField] TotalBuildingType[] totalBuildingTypes;
         [SerializeField] int amountMax;
 
         Dictionary<StatsType,int> inventoryLookupTable;
+        Dictionary<BuildingType,int> buildingLookUpTable;
 
 
         public int GetAmountInventory(StatsType statsType)
@@ -36,6 +38,24 @@ namespace Rehorizon.Inventory
             
         }
 
+        public int GetAmountBuilding(BuildingType buildingType)
+        {
+            BuildTotalBuildingLookUpTable();
+
+            return buildingLookUpTable[buildingType];
+        }
+
+        public void SetAmountBuilding(BuildingType buildingType)
+        {
+            BuildTotalBuildingLookUpTable();
+        
+            
+            buildingLookUpTable[buildingType] += 1;
+
+            
+            
+        }
+
 
         private void BuildLookUpTable()
         {
@@ -51,6 +71,21 @@ namespace Rehorizon.Inventory
             }
             
         }
+
+        private void BuildTotalBuildingLookUpTable()
+        {
+            if(buildingLookUpTable != null) return;
+            
+            buildingLookUpTable = new  Dictionary<BuildingType,int>();
+
+            foreach (TotalBuildingType building in totalBuildingTypes)
+            {
+               
+               buildingLookUpTable[building.buildingType] = building.totalBuilding;
+                
+            }
+            
+        }
     }
 
     [System.Serializable]
@@ -58,6 +93,13 @@ namespace Rehorizon.Inventory
     {
         public StatsType statsType;
         public int amount;
+    }
+
+    [System.Serializable]
+    public class TotalBuildingType
+    {
+        public BuildingType buildingType;
+        public int totalBuilding;
     }
 
 }

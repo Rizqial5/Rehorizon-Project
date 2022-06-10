@@ -1,9 +1,7 @@
-namespace Rehorizon.Stats
+
+public enum BuildingType
 {
-    public enum BuildingType
-    {
-        Organic,
-        Anorganic,
-        Green,
-    }
+    Organic,
+    Anorganic,
+    Green,
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rehorizon.Stats;
 using Rehorizon.Inventory;
+using Rehorizon.GuideBook;
+using UnityEngine.Events;
 
 namespace Rehorizon.Core
 {
@@ -14,11 +16,16 @@ namespace Rehorizon.Core
 
       [SerializeField] BuildingType buildingType;
       [SerializeField] InventoryData inventoryData;
-
+      [SerializeField] UnityEvent popUpBatu;
+      
       
 
+      
+      private int totalPlaced = 0;
       public BoundsInt area;
       public BoundsInt effectArea;
+
+      
 
       BaseBuilding baseBuilding;
 
@@ -26,6 +33,8 @@ namespace Rehorizon.Core
       {
          baseBuilding = GetComponent<BaseBuilding>();
       }
+
+     
      
       
 
@@ -37,14 +46,20 @@ namespace Rehorizon.Core
             areaTempt.position = positionInt;
 
             if (!GridBuilding.current.CanTakeArea(areaTempt) & !GridBuilding.current.CanTakeAreaEffect(areaEffectTempt)) return false;
-            if (!CheckResource(StatsType.Batu)) return false;
-            if (!CheckResource(StatsType.Elektronik)) return false;
+            if (!CheckResource(StatsType.Batu))
+            {
+               popUpBatu.Invoke();
+               return false;
+            } 
+            if (!CheckResource(StatsType.Elektronik))
+            {
+               popUpBatu.Invoke();
+               return false;
+            }
+
+            
 
             return true;
-
-
-
-
         }
 
         private bool CheckResource(StatsType statsType)
@@ -62,6 +77,16 @@ namespace Rehorizon.Core
          Placed = true;
          GridBuilding.current.TakeArea(areaTempt);
          GridBuilding.current.TakeAreaEffect(areaTemptEffect);
+
+         inventoryData.SetAmountBuilding(buildingType);
+         print(buildingType + "" + inventoryData.GetAmountBuilding(buildingType));
+         
+         
+         GBManager.current.UnlockNewDocument(buildingType,1);
+         GBManager.current.UnlockNewDocument(buildingType,2);
+
+         
+         
          
          
       }
@@ -78,6 +103,10 @@ namespace Rehorizon.Core
          
          
       }
+
+      
+
+      
 
 
       
